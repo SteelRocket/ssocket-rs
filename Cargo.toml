@@ -1,0 +1,25 @@
+[package]
+name = "ssocket"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+authors = ["SteelRocket"]
+readme = "README.md"
+repository = "https://github.com/SteelRocket/ssocket-rs"
+homepage = "https://github.com/SteelRocket/ssocket-rs"
+documentation = "https://docs.rs/ssocket"
+description = "A simple no_std crossplatform socket library."
+keywords = ["socket", "network"]
+categories = ["api-bindings", "network-programming"]
+
+[target.'cfg(windows)'.dependencies.windows-sys]
+version = "0.42.0"
+features = [
+  "Win32_Foundation",
+  "Win32_Networking_WinSock",
+  "Win32_System_IO",
+  "Win32_System_WindowsProgramming",
+]
+
+[target.'cfg(unix)'.dependencies.libc]
+version = "0.2"
